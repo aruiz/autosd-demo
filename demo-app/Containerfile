@@ -1,0 +1,15 @@
+FROM fedora:39 as build
+
+WORKDIR /code
+
+COPY ./meson.build /code/meson.build
+COPY ./demo-app.c  /code/demo-app.c
+
+RUN dnf -y install gtk4-devel                                                 \
+                   meson                                                      \
+                   ninja-build                                                \
+                   gcc                                                        \
+    && meson setup --prefix=/usr/local builddir                               \
+    && ninja -C builddir                                                      \
+    && ninja -C builddir install                                              \
+    && dnf clean all && rm -rf /var/cache/dnf
