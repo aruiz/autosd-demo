@@ -1,0 +1,21 @@
+[Unit]
+Description=Demo App container
+
+After=wayland.service wayland.socket
+Wants=wayland.service wayland.socket
+
+[Container]
+Image=localhost/demo-app
+ContainerName=demo-app
+Exec=/usr/local/bin/demo-app
+AddDevice=-/dev/dri/renderD128
+Environment=XDG_RUNTIME_DIR=/run/user/1020
+Environment=WAYLAND_DISPLAY=wayland-0
+Volume=/var/lib/digital-cockpit:/var/lib/digital-cockpit
+Volume=/run/user/1020:/run/user/1020
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
