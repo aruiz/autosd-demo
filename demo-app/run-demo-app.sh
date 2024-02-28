@@ -13,6 +13,6 @@ podman run --security-opt label=disable                     \
        -e XDG_RUNTIME_DIR=/run/user/1020                    \
        -e NO_AT_BRIDGE=1                                    \
        --user 1020 --userns=keep-id:uid=1020,gid=1020       \
-       -it localhost/autosd-demo-app:latest demo-app
+       -it localhost/autosd-demo-app:latest autosd-demo
 
 rm -fr $TMP_CONTAINER_HOME

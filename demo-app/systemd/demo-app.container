@@ -5,9 +5,9 @@ After=wayland.service wayland.socket
 Wants=wayland.service wayland.socket
 
 [Container]
-Image=localhost/demo-app
-ContainerName=demo-app
-Exec=/usr/local/bin/demo-app
+Image=quay.io/autosd-demo
+ContainerName=autosd-demo
+Exec=/usr/local/bin/autosd-demo
 AddDevice=-/dev/dri/renderD128
 Environment=XDG_RUNTIME_DIR=/run/user/1020
 Environment=WAYLAND_DISPLAY=wayland-0

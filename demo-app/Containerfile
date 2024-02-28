@@ -32,7 +32,7 @@ ARG DIGITAL_COCKPIT_HOME
 
 RUN dnf -y install gtk4                                                      \
     && dnf clean all && rm -rf /var/cache/dnf
-COPY --from=build /usr/local/bin/demo-app /usr/local/bin
+COPY --from=build /usr/local/bin/demo-app /usr/local/bin/autosd-demo
 
 USER $DIGITAL_COCKPIT_USER
 WORKDIR $DIGITAL_COCKPIT_HOME
