@@ -5,14 +5,15 @@ static void
 activate (GtkApplication *app,
           gpointer        user_data)
 {
-    GtkWidget *window;
-    GtkWidget *button;
-
-    window = gtk_application_window_new (app);
+    GtkWidget *window = gtk_application_window_new (app);
     gtk_window_set_title (GTK_WINDOW (window), "AutoSD Demo");
     gtk_window_fullscreen (GTK_WINDOW (window));
 
-    button = gtk_button_new_with_label ("Hello World!");
+    GtkWidget *button = gtk_button_new_with_label ("");
+    gtk_label_set_markup (
+          GTK_LABEL (gtk_button_get_child (GTK_BUTTON (button))),
+          "<span font=\"Bold 50.5\">Hello World!</span>");
+
     gtk_window_set_child (GTK_WINDOW (window), button);
 
     gtk_window_present (GTK_WINDOW (window));
