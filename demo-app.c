@@ -12,7 +12,7 @@ activate (GtkApplication *app,
     GtkWidget *button = gtk_button_new_with_label ("");
     gtk_label_set_markup (
           GTK_LABEL (gtk_button_get_child (GTK_BUTTON (button))),
-          "<span font=\"Bold 50.5\">Hello World!</span>");
+          "<span font=\"Bold 50.5\">Hello RHIVOS!</span>");
 
     gtk_window_set_child (GTK_WINDOW (window), button);
 
